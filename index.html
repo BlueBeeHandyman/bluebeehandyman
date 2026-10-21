@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#123aba" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Blue Bee Handyman | We'll Be Right Back</title>
+  <style>
+    :root {
+      --blue: #123aba;
+      --deep-blue: #030380;
+      --navy: #071c4a;
+      --yellow: #ffd42a;
+      --gold: #f1b900;
+      --cream: #fffaf0;
+      --white: #ffffff;
+      --ink: #16213a;
+      --muted: #5f6b7d;
+      --line: rgba(18, 58, 186, 0.13);
+      --shadow: 0 24px 70px rgba(3, 3, 128, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(255, 212, 42, .20), transparent 28%),
+        radial-gradient(circle at 88% 8%, rgba(18, 58, 186, .15), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #f8faff 62%, #fff9e8 100%);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      width: 260px;
+      height: 300px;
+      opacity: .055;
+      background-image:
+        linear-gradient(30deg, var(--blue) 12%, transparent 12.5%, transparent 87%, var(--blue) 87.5%, var(--blue)),
+        linear-gradient(150deg, var(--blue) 12%, transparent 12.5%, transparent 87%, var(--blue) 87.5%, var(--blue)),
+        linear-gradient(30deg, var(--blue) 12%, transparent 12.5%, transparent 87%, var(--blue) 87.5%, var(--blue)),
+        linear-gradient(150deg, var(--blue) 12%, transparent 12.5%, transparent 87%, var(--blue) 87.5%, var(--blue)),
+        linear-gradient(60deg, rgba(18,58,186,.55) 25%, transparent 25.5%, transparent 75%, rgba(18,58,186,.55) 75%);
+      background-size: 52px 91px;
+      background-position: 0 0, 0 0, 26px 45.5px, 26px 45.5px, 0 0;
+      pointer-events: none;
+    }
+
+    body::before { top: 120px; left: -80px; transform: rotate(-8deg); }
+    body::after { right: -80px; bottom: 45px; transform: rotate(10deg); }
+
+    .topbar {
+      background: var(--deep-blue);
+      color: white;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: .25px;
+      padding: 10px 18px;
+      font-size: 14px;
+    }
+
+    .topbar a { color: var(--yellow); text-decoration: none; white-space: nowrap; }
+    .topbar a:hover { text-decoration: underline; }
+
+    header {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      min-height: 108px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--deep-blue);
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    .brand img {
+      display: block;
+      max-width: 245px;
+      max-height: 82px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .header-phone {
+      color: var(--deep-blue);
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 800;
+      border: 2px solid rgba(18,58,186,.13);
+      border-radius: 999px;
+      padding: 11px 18px;
+      background: rgba(255,255,255,.75);
+    }
+
+    .header-phone:hover { border-color: var(--blue); }
+
+    main {
+      width: min(1180px, calc(100% - 36px));
+      margin: 8px auto 60px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255,255,255,.94);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      padding: clamp(38px, 7vw, 76px);
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 8px;
+      background: linear-gradient(90deg, var(--yellow), var(--gold) 34%, var(--blue) 34%, var(--blue));
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: #fff7d2;
+      border: 1px solid #ffe36b;
+      color: #715700;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: .15px;
+      margin-bottom: 22px;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 5px rgba(241,185,0,.16);
+    }
+
+    h1 {
+      margin: 0 auto;
+      color: var(--deep-blue);
+      max-width: 890px;
+      font-size: clamp(38px, 6vw, 70px);
+      line-height: 1.02;
+      letter-spacing: -1.8px;
+    }
+
+    h1 .accent { color: var(--blue); }
+
+    .lead {
+      margin: 24px auto 0;
+      max-width: 760px;
+      font-size: clamp(18px, 2.2vw, 23px);
+      line-height: 1.55;
+      color: #445169;
+    }
+
+    .lead strong { color: var(--ink); }
+
+    .cta-row {
+      margin-top: 32px;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      min-width: 230px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 12px;
+      padding: 16px 23px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 17px;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 10px 26px rgba(18,58,186,.25);
+    }
+
+    .btn-primary:hover { background: var(--deep-blue); }
+
+    .btn-secondary {
+      background: var(--yellow);
+      color: #1b2451;
+      box-shadow: 0 10px 26px rgba(241,185,0,.20);
+    }
+
+    .btn-secondary:hover { background: #ffcc00; }
+
+    .icon {
+      width: 21px;
+      height: 21px;
+      flex: 0 0 21px;
+      fill: currentColor;
+    }
+
+    .phone-block {
+      margin: 34px auto 0;
+      max-width: 650px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(18,58,186,.12);
+    }
+
+    .phone-label {
+      margin: 0 0 6px;
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    .phone-number {
+      color: var(--deep-blue);
+      text-decoration: none;
+      font-weight: 900;
+      font-size: clamp(29px, 5vw, 44px);
+      letter-spacing: -.8px;
+    }
+
+    .phone-number:hover { color: var(--blue); }
+
+    .phone-note {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 15px;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .trust-item {
+      background: rgba(255,255,255,.82);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      text-align: center;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .trust-item small {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    footer {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 0 0 34px;
+      text-align: center;
+      color: #667085;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    footer strong { color: var(--deep-blue); }
+
+    @media (max-width: 760px) {
+      header {
+        min-height: 92px;
+        justify-content: center;
+        text-align: center;
+      }
+      .brand img { max-width: 210px; max-height: 70px; }
+      .header-phone { display: none; }
+      .hero { border-radius: 22px; padding: 40px 22px 34px; }
+      h1 { letter-spacing: -1px; }
+      .cta-row { flex-direction: column; }
+      .btn { width: 100%; min-width: 0; }
+      .trust-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    Need help now? Call or text <a href="tel:+16109032583">610-903-BLUE (2583)</a>
+  </div>
+
+  <header>
+    <a class="brand" href="#" aria-label="Blue Bee Handyman home">
+      <img src="logo.png" alt="Blue Bee Handyman" />
+    </a>
+    <a class="header-phone" href="tel:+16109032583">610.903.BLUE (2583)</a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="status-badge"><span class="status-dot"></span> Temporary Website Maintenance</div>
+
+      <h1 id="page-title">Our main website is <span class="accent">temporarily down.</span></h1>
+
+      <p class="lead">
+        If you are seeing this page, our regular Blue Bee Handyman website is temporarily unavailable.
+        <strong>We expect to be back up soon.</strong> In the meantime, we're still here and ready to help with your handyman projects.
+      </p>
+
+      <div class="cta-row">
+        <!-- Replace YOUR_GOOGLE_FORM_URL_HERE below with the full published Google Form URL. -->
+        <a class="btn btn-primary" href="YOUR_GOOGLE_FORM_URL_HERE" target="_blank" rel="noopener noreferrer">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Zm-8 14H7v-2h4v2Zm6-4H7v-2h10v2Zm0-4H7V7h10v2Z"/></svg>
+          Request an Estimate
+        </a>
+
+        <a class="btn btn-secondary" href="tel:+16109032583">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.46 15.46 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"/></svg>
+          Call Blue Bee
+        </a>
+      </div>
+
+      <div class="phone-block">
+        <p class="phone-label">Call or text for handyman services</p>
+        <a class="phone-number" href="tel:+16109032583">610-903-2583</a>
+        <p class="phone-note">Send us a brief description of the work you need completed. Photos are helpful when requesting an estimate.</p>
+      </div>
+    </section>
+
+    <section class="trust-row" aria-label="Blue Bee Handyman service information">
+      <div class="trust-item">Licensed &amp; Insured<small>Professional handyman service in Southeastern Pennsylvania.</small></div>
+      <div class="trust-item">Local &amp; Reliable<small>Serving Chester, Delaware &amp; Montgomery Counties.</small></div>
+      <div class="trust-item">Clear Estimates<small>Contact us while the main website is being restored.</small></div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Blue Bee Handyman</strong> &nbsp;•&nbsp; PA HIC License #208929<br />
+    Serving Chester, Delaware &amp; Montgomery Counties, Pennsylvania.
+  </footer>
+</body>
+</html>
